@@ -1,0 +1,7 @@
+/.settings/
+/.project
+/.applications.yml
+/.CTSServiceConfig.xml
+/.CTSSwitchConfiguration.xml
+/.PCMWebAPIServiceConfig.xml
+bin/pom.xml
