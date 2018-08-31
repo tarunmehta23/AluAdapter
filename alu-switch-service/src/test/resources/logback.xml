@@ -1,0 +1,22 @@
+<configuration debug="true">
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/alu-switch-service.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>5</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} %-5level %logger{0} {%X} -     %msg%n</pattern>
+        </encoder>
+    </appender>
+
+	<logger name="ALUSwitch" level="debug" additivity="false"></logger>
+
+	<root level="info">
+        <appender-ref ref="FILE" />
+    </root>
+    
+</configuration>

@@ -1,0 +1,20 @@
+<CTSSwitchConfiguration default="1">
+
+    <CTSConfiguration id="1">
+        <switchName>cts00</switchName>
+        <fsdbName>fsdb1</fsdbName>
+        <topologyId>cts00_fsdb1</topologyId>
+        <status>Active</status>
+        <provisionControllers>false</provisionControllers>
+        <!-- [1.5.0_P5] enable only for CTS configuration for provisioning hg/bg controllers-->
+    </CTSConfiguration>
+
+    <CTSConfiguration id="2">
+        <switchName>cts01</switchName>
+        <fsdbName>fsdb1</fsdbName>
+        <topologyId>cts01_fsdb1</topologyId>
+        <status>Active</status>
+        <provisionControllers>true</provisionControllers>
+        <!-- [1.5.0_P5] enable only for CTS configuration for hg provisioning hg/bg controllers-->
+    </CTSConfiguration>
+</CTSSwitchConfiguration>

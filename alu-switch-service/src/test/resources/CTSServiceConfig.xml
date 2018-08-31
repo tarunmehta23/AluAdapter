@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceConfig>
+	<prov-attribute name="BCP.ManagedLine_PhoneNumber" type="feature" label="The subscriber telephone number ">
+		<catalog-object name="SubParty">
+		
+			<catalog-property name="DisplayName" value="" source="request"  />
+			<catalog-property name="PartyId" value="" source="request"  />
+			<catalog-property name="PrimaryPUID" value="" source="request" />
+			<catalog-property name="PrimaryPUIDCPEProfileNumber" value="200" source="default"/>
+			<catalog-property name="AlternateFsdbFqdn" value="" source="default" />
+			<catalog-property name="Category" value="SERVICEBUNDLE2" source="default" />
+			<catalog-property name="CsdFlavor" value="TAS_CSD_ALU_P2" source="default"  />
+			<catalog-property name="CsdDynamic" value="false" source="default" />
+			<catalog-property name="CallLimit" value="6" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_PPS" type="feature" label="Privacy Settings">
+		<catalog-object name="CallingLineId">
+			<catalog-property name="CallingLineIdRestriction" value="" source="request" />
+			<catalog-property name="CallingNamePresentation" value="true" source="default" />
+			<catalog-property name="CallingLineIdPresentation" value="true" source="default" />
+		    <catalog-property name="CLIREditAllowed" value="false" source="default" />
+			<catalog-property name="ConnectedLinePresentation" value="false" source="default" />
+			<catalog-property name="ConnectedLineRestriction" value="false" source="default" />
+			<catalog-property name="ConnectedLineRestrictionOverride" value="false" source="default" />
+			<catalog-property name="PDPExtensionDisplay" value="false" source="default" />
+			<catalog-property name="COLREditAllowed" value="false" source="default" />
+			<catalog-property name="RestrictionOverride" value="false" source="default" />
+			<catalog-property name="OrigLineIdRestrictionLevel" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_LPIC" type="feature" label="Carrier Selection Codes">
+		<catalog-object name="CarrierSelection">
+			<catalog-property name="IntraLataTollCarrier" value="" source="request" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_PIC" type="feature" label="Carrier Selection Codes">
+		<catalog-object name="CarrierSelection">
+			<catalog-property name="LongDistanceCarrier" value="" source="request" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+		</catalog-object>
+	</prov-attribute>
+	<prov-attribute name="BCP.ManagedLine_IPIC" type="feature" label="Carrier Selection Codes">
+		<catalog-object name="CarrierSelection">
+			<catalog-property name="PresubscribedCarrier3" value="" source="request" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_CNAM" type="feature" label="Display Name for the Service">
+		<catalog-object name="SubParty">
+			<catalog-property name="DisplayName" value="" source="request" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_DialPlanId" type="feature" label="Dial Plan profile">
+		<catalog-object name="DialingPlan">
+			<catalog-property name="PrefixandFeatureCode" value="" source="request" />
+			<!-- TODO: Defaulted E164NormAndCodeConv. Yet to figure out if it comes in request -->
+			<catalog-property name="E164NormAndCodeConv" value="2001" source="default" />
+			<catalog-property name="CallBarringLocal" value="1004" source="default" />
+			<catalog-property name="PublicUID" value="0" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_Default" type="feature" label="To allow PCM User for Admin/Portal actions">
+		<catalog-object name="WebPortal">
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_DisconnectReferral" type="feature" label="Disconnect Referral">
+		<catalog-object name="InterceptReferral">
+			<catalog-property name="ExpiryTimestamp" value="+30" source="default" />
+			<catalog-property name="NewDN" value="" source="request" />
+			<catalog-property name="Activated" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<!-- Assigned & Activated always true. Only way to UnAssign is to send Delete (Similar to RCF) by Srinivas -->
+			<catalog-property name="Assigned" value="true" source="default" />
+		</catalog-object>
+	</prov-attribute>
+	
+	<prov-attribute name="BCP.ManagedLine_Timezone" type="feature" label="Ratecenter Timezone">
+		<catalog-object name="SetTZPath">
+			<catalog-property name="TZPath" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+	</prov-attribute>
+
+	<!-- VMAIL -->
+	<prov-attribute name="BCP.ManagedLine_CFD" type="feature" label="Add or delete voicemail for BCP Service">
+		<catalog-object name="CallForwardDefault">
+			<catalog-property name="ForwardToType" value="FORWARD_TO_VM" source="default" />
+			<catalog-property name="ForwardToDN" value="" source="default" />
+			<catalog-property name="ForwardToDNAllowed" value="true" source="default" />
+			<catalog-property name="CfdMode" value="STANDARD" source="default" />
+			<catalog-property name="EditPermission" value="EDIT_FULL" source="default" />
+			<catalog-property name="EditPermissionsNoAnswer" value="EDIT_FULL" source="default" />
+			<catalog-property name="PinRequired" value="false" source="default" />
+			<catalog-property name="Send181Mode" value="TAS_181_NONE" source="default" />
+			<catalog-property name="NoAnswerTimeOut" value="" source="request" />
+			<catalog-property name="PlayAnnouncement" value="false" source="default" />
+			<catalog-property name="Activated" value="" source="request" />
+			<catalog-property name="BusyActive" value="true" source="default" />
+			<catalog-property name="NoAnsActive" value="true" source="default" />
+			<catalog-property name="RestrictIdBackward" value="false" source="default" />
+			<catalog-property name="RestrictIdForward" value="false" source="default" />    
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+		<catalog-object name="VoiceMail">
+			<catalog-property name="ForwardToDN" value="" source="request" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+			<catalog-property name="VideoMailSupported" value="false" source="default" />
+		</catalog-object>
+		<catalog-object name="MsgWaitingInd">
+			<catalog-property name="MWINotify" value="true" source="default" />
+			<catalog-property name="Activated" value="" source="request" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>	
+		<catalog-object name="TransferToUsersVM">
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>			
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_ACR" type="feature" label="Anonymous Call Reject">
+		<catalog-object name="AnonymousCallRej">
+			<catalog-property name="PingRing" value="false" source="default" />
+			<catalog-property name="SelectiveDN1" value="" source="request" />
+			<catalog-property name="Activated" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_CFNA" type="feature" label="Call Forward No Answer">
+		<catalog-object name="CallForwardingNoAns">
+			<catalog-property name="ForwardToType" value="FORWARD_TO_DN" source="default" />
+			<catalog-property name="ForwardToDN" value="" source="default" />
+			<catalog-property name="ForwardToDNAllowed" value="true" source="default" />
+			<catalog-property name="NoAnswerTimeout" value="30" source="default" />
+			<catalog-property name="EditPermission" value="EDIT_FULL" source="default" />
+			<catalog-property name="ForwardVoiceCalls" value="true" source="default" />
+			<catalog-property name="ForwardDataCalls" value="true" source="default" />
+			<catalog-property name="ReceiveNotify" value="false" source="default" />
+			<catalog-property name="PinRequired" value="false" source="default" />
+			<catalog-property name="Send181Mode" value="TAS_181_NONE" source="default" />
+			<catalog-property name="Activated" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_CFB" type="feature" label="Call Forward Busy">
+		<catalog-object name="CallForwardingBusy">
+			<catalog-property name="ForwardToType" value="FORWARD_TO_DN" source="default" />
+			<catalog-property name="ForwardToDN" value="" source="default" />
+			<catalog-property name="ForwardToDNAllowed" value="true" source="default" />
+			<catalog-property name="EditPermission" value="EDIT_FULL" source="default" />
+			<catalog-property name="ForwardVoiceCalls" value="true" source="default" />
+			<catalog-property name="ForwardDataCalls" value="true" source="default" />
+			<catalog-property name="PlayAnnouncement" value="false" source="default" />
+			<catalog-property name="Activated" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_CFU" type="feature" label="Call Forward Unconditional">
+		<catalog-object name="CallForwardingVari">
+			<catalog-property name="ForwardToType" value="FORWARD_TO_DN" source="default" />
+			<catalog-property name="ForwardToDN" value="" source="default" />
+			<catalog-property name="PingRing" value="true" source="default" />
+			<catalog-property name="EditPermission" value="EDIT_FULL" source="default" />
+			<catalog-property name="ForwardVoiceCalls" value="true" source="default" />
+			<catalog-property name="ForwardDataCalls" value="true" source="default" />
+			<catalog-property name="ReceiveNotify" value="false" source="default" />
+			<catalog-property name="PlayAnnouncement" value="false" source="default" />
+			<catalog-property name="Activated" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_SC1D" type="feature" label="One Digit Speed Dial">
+		<catalog-object name="OneDigitSpeedDial">
+			<catalog-property name="DialCodeEntries" value="" source="default" />
+			<catalog-property name="DNEntries" value="" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_SCR" type="feature" label="Selective Call Reject">
+		<catalog-object name="SelectiveCallRejct">
+			<catalog-property name="Activated" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+			<catalog-property name="PingRing" value="false" source="default" />
+			<catalog-property name="SelRejectData" value="" source="default" />
+			<catalog-property name="PinRequired" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_SCF" type="feature" label="Selective Call Forward">
+		<catalog-object name="SelectiveCallFwd">
+			<catalog-property name="ForwardToType" value="FORWARD_TO_DN" source="default" />
+			<catalog-property name="ForwardToDN" value="" source="default" />
+			<catalog-property name="PingRing" value="false" source="default" />
+			<catalog-property name="PlayAnnouncement" value="false" source="default" />
+			<catalog-property name="PinRequired" value="false" source="default" />
+			<catalog-property name="Send181Mode" value="TAS_181_NONE" source="default" />
+			<catalog-property name="NoAnswerTimeOut" value="" source="default" />
+			<catalog-property name="ScfType" value="UNCONDITIONAL" source="default" />
+			<catalog-property name="Activated" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_CallTransfer" type="feature" label="Call Transfer">
+		<catalog-object name="CallTransfer">
+			<catalog-property name="Blind" value="true" source="default" />
+			<catalog-property name="Consultation" value="true" source="default" />
+			<catalog-property name="LocalRefer" value="true" source="default" />
+			<catalog-property name="CTRingbackTimer" value="0" source="default" />
+			<catalog-property name="Activated" value="true" source="default" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_CWAIT" type="feature" label="Call Wait">
+		<catalog-object name="CallWaiting">
+			<catalog-property name="IsAlternateCallWaiting" value="false" source="default" />
+			<catalog-property name="Activated" value="true" source="default" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_CIDCW" type="feature" label="Call Wait with CallerId">
+		<catalog-object name="CallingLineId">
+			<catalog-property name="CallingLineIdRestriction" value="PUBLIC" source="default" />
+			<catalog-property name="CallingNamePresentation" value="true" source="default" />
+			<catalog-property name="CallingLineIdPresentation" value="true" source="default" />
+			<catalog-property name="RestrictionOverride" value="false" source="default" />
+			<catalog-property name="CLIREditAllowed" value="false" source="default" />
+			<catalog-property name="ConnectedLinePresentation" value="false" source="default" />
+			<catalog-property name="ConnectedLineRestriction" value="false" source="default" />
+			<catalog-property name="ConnectedLineRestrictionOverride" value="false" source="default" />
+			<catalog-property name="PDPExtensionDisplay" value="false" source="default" />
+			<catalog-property name="OrigLineIdRestrictionLevel" value="NONE" source="default" />
+			<catalog-property name="COLREditAllowed" value="false" source="default" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+		<catalog-object name="CallWaiting">
+			<catalog-property name="IsAlternateCallWaiting" value="false" source="default" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+	</prov-attribute>
+	<prov-attribute name="BCP.ManagedLine_BlockingCodes" type="feature" label="Line Suspension">
+		<catalog-object name="DialingPlan">
+			<catalog-property name="PrefixandFeatureCode" value="" source="request" />
+			<catalog-property name="E164NormAndCodeConv" value="3998" source="default" />
+			<catalog-property name="CallBarringLocal" value="1004" source="default" />
+			<catalog-property name="PrivateDialingPlan" value="0" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>		
+	<prov-attribute name="BCP.ManagedLine_SuspendedLine" type="feature" label="Line Suspension">
+		<catalog-object name="CallBarring">
+			<catalog-property name="CallBarringAll" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+		<catalog-object name="CallBlocking">
+			<catalog-property name="All" value="true" source="default" />
+			<catalog-property name="UserCtrlAll" value="false" source="default" />
+			<catalog-property name="Activated" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_CallHold" type="feature" label="Call Hold">
+		<catalog-object name="CallPark">
+			<catalog-property name="BasicParkAllowed" value="" source="request" />
+			<catalog-property name="BasicRetrieveAllowed" value="" source="request" />
+			<catalog-property name="DirectedParkAllowed" value="" source="request" />
+			<catalog-property name="DirectedRetrieveAlowed" value="" source="request" />
+			<catalog-property name="RingBackTimer" value="30" source="default" />
+			<catalog-property name="Activated" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_CallPark" type="feature" label="Call Park">
+		<catalog-object name="CallPark">
+			<catalog-property name="BasicParkAllowed" value="" source="request" />
+			<catalog-property name="BasicRetrieveAllowed" value="" source="request" />
+			<catalog-property name="DirectedParkAllowed" value="" source="request" />
+			<catalog-property name="DirectedRetrieveAlowed" value="" source="request" />
+			<catalog-property name="RingBackTimer" value="30" source="default" />
+			<catalog-property name="Activated" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+	</prov-attribute>
+	
+	<prov-attribute name="BCP.ManagedLine_SimultaneousRing" type="feature" label="Simultaneous Ring">
+		<catalog-object name="SimultaneousRinging">
+			<catalog-property name="PuidNum1" value="" source="request" />
+			<catalog-property name="Activated" value="" source="request" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_SequentialRing" type="feature" label="Sequential Ring">
+		<catalog-object name="SeqRinging">
+			<catalog-property name="RingingList" value="null^null^true^true^30^false" source="request" />
+			<catalog-property name="ContinueOnBusy" value="true" source="default" />
+			<catalog-property name="ContinueOnNoAnswer" value="true" source="default" />
+			<catalog-property name="DefaultAnswerTimeout" value="30" source="default" />
+			<catalog-property name="PlayAnnouncement" value="false" source="default" />
+			<catalog-property name="Send181Mode" value="TAS_181_NONE" source="default" />
+			<catalog-property name="Activated" value="" source="request" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_PinService" type="feature" label="Pin Service">
+		<catalog-object name="PinService">
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+			<catalog-property name="PinFrozen" value="false" source="default" />
+		</catalog-object>		
+	</prov-attribute>
+	
+	<prov-attribute name="BCP.ManagedLine_RemoteOffice" type="feature" label="Remote Office">
+		<catalog-object name="RemoteUser">
+			<catalog-property name="CallsAlwd" value="true" source="default" />
+			<catalog-property name="SubsequentAlwd" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>		
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_CustomCNAM" type="feature" label="Custom CNAM">
+		<catalog-object name="FlexCallingLineId">
+			<catalog-property name="LineId" value="" source="request" />
+			<catalog-property name="IdDisabledForEmergencyCalls" value="true" source="default" />
+			<catalog-property name="IdDisabledForSelf" value="true" source="default" />
+			<catalog-property name="IdDisabledForExtensionCall" value="true" source="default" />
+			<catalog-property name="IdDisabledForTollFree" value="false" source="default" />
+			<catalog-property name="Activated" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_LastNumberRedial" type="feature" label="Last Number Redial">
+		<catalog-object name="AutomaticRecall">
+			<catalog-property name="DoNotRecordAnswer" value="false" source="default" />
+			<catalog-property name="RecordDateTime" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_CallReturn" type="feature" label="Last Number Redial">
+		<catalog-object name="AutomaticCallBack">
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_PersonalAnswering" type="feature" label="Personal Answering Service">
+		<catalog-object name="CallTransfer">
+			<catalog-property name="Blind" value="true" source="default" />
+			<catalog-property name="Activated" value="true" source="default" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+		<catalog-object name="AutoAttendant">
+			<catalog-property name="AutoAttendantLevel" value="2" source="default" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_Profile" type="feature" label="Profiles">
+		<catalog-object name="TimeOriginatedRC">
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_DoNotDisturb" type="feature" label="Do Not Disturb feature">
+		<catalog-object name="DoNotDisturb">
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="Activated" value="false" source="default" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_DistinctiveRing" type="feature" label="Distinctive Ring feature">
+		<catalog-object name="MultipleRingPattern-STANDARD">
+			<catalog-property name="RingPattern" value="STANDARD" source="default" />
+			<catalog-property name="Assigned" value="true" source="default" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+		<catalog-object name="MultipleRingPattern-RINGPATTERN1">
+			<catalog-property name="RingPattern" value="RINGPATTERN1" source="default" />
+			<catalog-property name="Assigned" value="true" source="default" />
+			<catalog-property name="PerPuid" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+		<catalog-object name="MultipleRingPattern-RINGPATTERN2">
+			<catalog-property name="RingPattern" value="RINGPATTERN2" source="default" />
+			<catalog-property name="Assigned" value="true" source="default" />
+			<catalog-property name="PerPuid" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+		<catalog-object name="MultipleRingPattern-RINGPATTERN3">
+			<catalog-property name="RingPattern" value="RINGPATTERN3" source="default" />
+			<catalog-property name="Assigned" value="true" source="default" />
+			<catalog-property name="PerPuid" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+		<catalog-object name="MultipleRingPattern-RINGPATTERN4">
+			<catalog-property name="RingPattern" value="RINGPATTERN4" source="default" />
+			<catalog-property name="Assigned" value="true" source="default" />
+			<catalog-property name="PerPuid" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+		<catalog-object name="MultipleRingPattern-RINGPATTERN5">
+			<catalog-property name="RingPattern" value="RINGPATTERN5" source="default" />
+			<catalog-property name="Assigned" value="true" source="default" />
+			<catalog-property name="PerPuid" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+		<catalog-object name="MultipleRingPattern-RINGPATTERN6">
+			<catalog-property name="RingPattern" value="RINGPATTERN6" source="default" />
+			<catalog-property name="Assigned" value="true" source="default" />
+			<catalog-property name="PerPuid" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+	</prov-attribute>
+	
+	<!--  START BCP.HuntGroup -->
+	<prov-attribute name="BCP.HuntGroup_PhoneNumber" type="feature" label="The subscriber telephone number ">
+		<catalog-object name="SubParty">
+			<catalog-property name="DisplayName" value="" source="request" />
+			<catalog-property name="PartyId" value="" source="request" />
+			<catalog-property name="PrimaryPUID" value="" source="request" />
+			<catalog-property name="AlternateFsdbFqdn" value="" source="default" />
+			<catalog-property name="Category" value="SERVICEBUNDLE2" source="default" />
+			<catalog-property name="CsdFlavor" value="TAS_CSD_ALU_P2" source="default" />
+			<catalog-property name="PrimaryPUIDCPEProfileNumber" value="200" source="default" />
+			<catalog-property name="CsdDynamic" value="false" source="default" />
+			<catalog-property name="CallLimit" value="6" source="default" />
+		</catalog-object>
+	</prov-attribute>
+	<!--  END BCP.HuntGroup -->
+
+	<!-- START BCP.BusinessGroup -->
+	<prov-attribute name="BCP.BusinessGroup_PhoneNumber" type="feature" label="The subscriber telephone number ">
+		<catalog-object name="SubParty">
+			<catalog-property name="DisplayName" value="" source="request" />
+			<catalog-property name="PartyId" value="" source="request" />
+			<catalog-property name="PrimaryPUID" value="" source="request" />
+			<catalog-property name="AlternateFsdbFqdn" value="" source="default" />
+			<catalog-property name="Category" value="SERVICEBUNDLE2" source="default" />
+			<catalog-property name="CsdFlavor" value="TAS_CSD_ALU_P2" source="default" />
+			<catalog-property name="PrimaryPUIDCPEProfileNumber" value="200" source="default" />
+			<catalog-property name="CsdDynamic" value="false" source="default" />
+			<catalog-property name="CallLimit" value="6" source="default" />
+		</catalog-object>
+		<catalog-object name="CallPickupTerm">
+			<catalog-property name="CallPickupGroupId" value="" source="request" />
+			<catalog-property name="DirectedAlwd" value="true" source="default" />
+			<catalog-property name="GrpController" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+		<catalog-object name="VPNDialingAndDisplay">
+			<catalog-property name="VpnId" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>
+	
+	<prov-attribute name="BCP.ManagedLine_CallParkRetrieve" type="feature" label="Call Park and retrieve - bg member feature">
+		<catalog-object name="CallPark">
+			<catalog-property name="BasicParkAllowed" value="" source="request" />
+			<catalog-property name="BasicRetrieveAllowed" value="" source="request" />
+			<catalog-property name="DirectedParkAllowed" value="" source="request" />
+			<catalog-property name="DirectedRetrieveAlowed" value="" source="request" />
+			<catalog-property name="RingBackTimer" value="30" source="default" />
+			<catalog-property name="Activated" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+		<catalog-object name="DirectedGroup">
+			<catalog-property name="DirectedGroupId" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>		
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_DPU" type="feature" label="Direct call pickup - bg member feature">
+		<catalog-object name="DirectedGroup">
+			<catalog-property name="DirectedGroupId" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+		<catalog-object name="CallPickupOrig">
+			<catalog-property name="CallPickupGroupId" value="" source="request" />
+			<catalog-property name="CallPickupDial" value="" source="request" />
+			<catalog-property name="DirCallPickupDial" value="" source="request" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+		<catalog-object name="CallPickupTerm">
+			<catalog-property name="CallPickupGroupId" value="" source="request" />
+			<catalog-property name="DirectedAlwd" value="" source="request" />
+			<catalog-property name="GrpController" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>
+	<!-- END BCP.BusinessGroup -->
+	
+	<!--  START BCP.RemoteCallForwarding -->
+	<prov-attribute name="BCP.RemoteCallForwarding_PhoneNumber" type="feature" label="RCF subscriber telephone number ">
+		<catalog-object name="SubParty">
+			<catalog-property name="PartyId" value="" source="request" />
+			<catalog-property name="PrimaryPUID" value="" source="request" />
+			<catalog-property name="AlternateFsdbFqdn" value="" source="default" />
+			<catalog-property name="Category" value="SERVICEBUNDLE2" source="default" />
+			<catalog-property name="CsdFlavor" value="TAS_CSD_ALU_P2" source="default" />
+			<catalog-property name="PrimaryPUIDCPEProfileNumber" value="200" source="default" />
+			<catalog-property name="CsdDynamic" value="false" source="default" />
+			<catalog-property name="CallLimit" value="6" source="default" />
+			<catalog-property name="PublicUID1" value="" source="request" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.RemoteCallForwarding_DialPlanId" type="feature" label="RCF subscriber telephone number ">
+		<catalog-object name="DialingPlan">
+			<catalog-property name="PrefixandFeatureCode" value="" source="request" />
+			<!-- TODO: Defaulted E164NormAndCodeConv. Yet to figure out if it comes in request -->
+			<catalog-property name="E164NormAndCodeConv" value="2001" source="default" />
+			<catalog-property name="CallBarringLocal" value="1004" source="default" />
+			<catalog-property name="PublicUID" value="0" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+		</catalog-object>
+	</prov-attribute>
+	
+		<prov-attribute name="BCP.RemoteCallForwarding_LPIC" type="feature" label="Carrier Selection Codes">
+		<catalog-object name="CarrierSelection">
+			<catalog-property name="IntraLataTollCarrier" value="" source="request" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.RemoteCallForwarding_PIC" type="feature" label="Carrier Selection Codes">
+		<catalog-object name="CarrierSelection">
+			<catalog-property name="LongDistanceCarrier" value="" source="request" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+		</catalog-object>
+	</prov-attribute>
+	
+	<prov-attribute name="BCP.RemoteCallForwarding_IPIC" type="feature" label="Carrier Selection Codes">
+		<catalog-object name="CarrierSelection">
+			<catalog-property name="PresubscribedCarrier3" value="" source="request" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+		</catalog-object>
+	</prov-attribute>
+	
+    <prov-attribute name="BCP.RemoteCallForwarding_CFU" type="feature" label="RCF Call Forward Unconditional">
+        <catalog-object name="CallForwardingVari">
+            <catalog-property name="ForwardToType" value="FORWARD_TO_DN" source="default" />
+            <catalog-property name="ForwardToDN" value="" source="default" />
+            <catalog-property name="PingRing" value="true" source="default" />
+            <catalog-property name="EditPermission" value="EDIT_FULL" source="default" />
+            <catalog-property name="ForwardVoiceCalls" value="true" source="default" />
+            <catalog-property name="ForwardDataCalls" value="true" source="default" />
+            <catalog-property name="ReceiveNotify" value="false" source="default" />
+            <catalog-property name="PlayAnnouncement" value="false" source="default" />
+            <catalog-property name="Activated" value="false" source="default" />
+            <catalog-property name="PublicUID" value="" source="request" />
+            <catalog-property name="Assigned" value="" source="request" />
+            <catalog-property name="PerPuid" value="false" source="default" />
+        </catalog-object>
+    </prov-attribute>	
+	
+	<!--  END BCP.RemoteCallForwarding -->
+	
+	<!--  START BCP.AccountCode -->
+	<prov-attribute name="BCP.AccountCode_AccountCode" type="feature" label="Verified Account Codes">
+		<catalog-object name="PlexViewRequest">
+			<catalog-property name="aid" value="" source="request" />
+			<catalog-property name="AllTypes" value="false" source="default" />
+			<catalog-property name="GroupId" value="" source="request" />
+			<catalog-property name="AuthCode" value="" source="request" />
+			<catalog-property name="International" value="true" source="default" />
+			<catalog-property name="Local" value="false" source="default" />
+			<catalog-property name="IntraLataToll" value="true" source="default" />
+			<catalog-property name="InterLataToll" value="true" source="default" />
+			<catalog-property name="National" value="false" source="default" />
+			<catalog-property name="Emergency" value="false" source="default" />
+			<catalog-property name="TollFree" value="false" source="default" />
+			<catalog-property name="FGDDialedCarrier" value="true" source="default" />
+			<catalog-property name="FGBDialedCarrier" value="true" source="default" />
+			<catalog-property name="DirectoryAssist" value="true" source="default" />
+			<catalog-property name="NXXCalls" value="false" source="default" />
+			<catalog-property name="User1" value="false" source="default" />
+			<catalog-property name="User2" value="false" source="default" />
+			<catalog-property name="User3" value="false" source="default" />
+			<catalog-property name="User4" value="false" source="default" />
+			<catalog-property name="User5" value="false" source="default" />
+			<catalog-property name="User6" value="false" source="default" />
+			<catalog-property name="User7" value="false" source="default" />
+			<catalog-property name="User8" value="false" source="default" />
+			<catalog-property name="User9" value="false" source="default" />
+			<catalog-property name="User10" value="false" source="default" />
+			<catalog-property name="User11" value="false" source="default" />
+			<catalog-property name="User12" value="false" source="default" />
+			<catalog-property name="User13" value="true" source="default" />
+			<catalog-property name="PremiumService" value="true" source="default" />
+			<catalog-property name="IntraCUG" value="false" source="default" />
+			<catalog-property name="NonE164" value="false" source="default" />
+			<catalog-property name="Mobile" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="BCP.ManagedLine_AccountCode" type="feature" label="Verified Account Codes">
+		<catalog-object name="AuthCodeService">
+			<catalog-property name="GroupId" value="" source="request" />
+			<catalog-property name="AllowBilling" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="" source="request" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+		<catalog-object name="CallBarring">
+			<catalog-property name="International" value="true" source="default" />
+			<catalog-property name="TollFree" value="false" source="default" />
+			<catalog-property name="IntraLataToll" value="true" source="default" />
+			<catalog-property name="InterLataToll" value="true" source="default" />
+			<catalog-property name="FGDDialedCarrier" value="true" source="default" />
+			<catalog-property name="FGBDialedCarrier" value="true" source="default" />
+			<catalog-property name="User13" value="true" source="default" />
+			<catalog-property name="PremiumServ" value="true" source="default" />
+			<catalog-property name="DirectoryAssist" value="true" source="default" />						
+			<catalog-property name="Emergency" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+		</catalog-object>
+		<catalog-object name="AcctCodes">
+			<catalog-property name="CodeLength" value="" source="request" />
+			<catalog-property name="RequiredForAllCalls" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+			<catalog-property name="PerPuid" value="false" source="default" />
+		</catalog-object>
+	</prov-attribute>
+	<!--  END BCP.AccountCode -->
+
+	<!-- START PRI.Trunk -->
+	<prov-attribute name="PRI.Trunk_PhoneNumber" type="feature" label="Trunk Service">
+		<catalog-object name="SubParty">
+			<catalog-property name="DisplayName" value="" source="request" />
+			<catalog-property name="PartyId" value="" source="request" />
+			<catalog-property name="PrimaryPUID" value="" source="request" />
+			<catalog-property name="PrimaryPUIDCPEProfileNumber" value="200" source="default" />
+			<catalog-property name="AlternateFsdbFqdn" value="" source="default" />
+			<catalog-property name="Category" value="" source="request" />
+			<catalog-property name="CsdFlavor" value="TAS_CSD_ALU_P2" source="default" />
+			<catalog-property name="CsdDynamic" value="false" source="default" />
+			<catalog-property name="CallLimit" value="6" source="default" />
+			<catalog-property name="MsnCapability" value="false" source="default" />
+			<catalog-property name="MaxFwdHops" value="10" source="default" />
+			<catalog-property name="Receive181Mode" value="TAS_181_NONE" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="PRI.Trunk_AlternateRouting" type="feature" label="Trunk Service">
+		<catalog-object name="AltRtToPBX">
+			<catalog-property name="Overflow" value="" source="request" />
+			<catalog-property name="OverflowActive" value="" source="request" />
+			<catalog-property name="RouteFailure" value="" source="request" />
+			<catalog-property name="RouteFailureActive" value="" source="request" />
+			<catalog-property name="NoResTimer" value="7" source="default" />
+			<catalog-property name="AltRouteDestDN" value="" source="request" />
+			<catalog-property name="OverflowDestDN" value="" source="request" />
+			<catalog-property name="PlayAnnc" value="false" source="default" />
+			<catalog-property name="Send181Mode" value="TAS_181_NONE" source="default" />
+			<catalog-property name="RestrictIdOrig" value="false" source="default" />
+			<catalog-property name="RestrictIdFwd" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+			<catalog-property name="Activated" value="" source="request" />
+			<catalog-property name="PerPUID" value="" source="request" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="PRI.Trunk_TrunkOverflow" type="feature" label="Trunk overflow feature">
+			<catalog-object name="AltRtToPBX">
+			<catalog-property name="Overflow" value="" source="request" />
+			<catalog-property name="OverflowActive" value="" source="request" />
+			<catalog-property name="RouteFailure" value="" source="request" />
+			<catalog-property name="RouteFailureActive" value="" source="request" />
+			<catalog-property name="NoResTimer" value="7" source="default" />
+			<catalog-property name="AltRouteDestDN" value="" source="request" />
+			<catalog-property name="OverflowDestDN" value="" source="request" />
+			<catalog-property name="PlayAnnc" value="false" source="default" />
+			<catalog-property name="Send181Mode" value="TAS_181_NONE" source="default" />
+			<catalog-property name="RestrictIdOrig" value="false" source="default" />
+			<catalog-property name="RestrictIdFwd" value="false" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+			<catalog-property name="Activated" value="" source="request" />
+			<catalog-property name="PerPUID" value="" source="request" />
+		</catalog-object>
+	</prov-attribute>
+	
+		<prov-attribute name="PRI.Trunk_PPS" type="feature" label="Privacy Settings">
+		<catalog-object name="CallingLineId">
+			<catalog-property name="CallingLineIdRestriction" value="" source="request" />
+			<catalog-property name="CallingNamePresentation" value="true" source="default" />
+			<catalog-property name="CallingLineIdPresentation" value="true" source="default" />
+			<catalog-property name="CLIREditAllowed" value="false" source="default" />
+			<catalog-property name="ConnectedLinePresentation" value="false" source="default" />
+			<catalog-property name="ConnectedLineRestriction" value="false" source="default" />
+			<catalog-property name="ConnectedLineRestrictionOverride" value="false" source="default" />
+			<catalog-property name="PDPExtensionDisplay" value="false" source="default" />
+			<catalog-property name="COLREditAllowed" value="false" source="default" />
+			<catalog-property name="RestrictionOverride" value="false" source="default" />
+			<catalog-property name="OrigLineIdRestrictionLevel" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+			<catalog-property name="PublicUID" value="" source="request" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="PRI.Trunk_LPIC" type="feature" label="Carrier Selection Codes">
+		<catalog-object name="CarrierSelection">
+			<catalog-property name="IntraLataTollCarrier" value="" source="request" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="PRI.Trunk_PIC" type="feature" label="Carrier Selection Codes">
+		<catalog-object name="CarrierSelection">
+			<catalog-property name="LongDistanceCarrier" value="" source="request" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+		</catalog-object>
+	</prov-attribute>
+	<prov-attribute name="PRI.Trunk_IPIC" type="feature" label="Carrier Selection Codes">
+		<catalog-object name="CarrierSelection">
+			<catalog-property name="PresubscribedCarrier3" value="" source="request" />
+			<catalog-property name="PublicUID" value="" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="PRI.Trunk_CNAM" type="feature" label="Display Name for the Service">
+		<catalog-object name="SubParty">
+			<catalog-property name="DisplayName" value="" source="request" />
+		</catalog-object>
+	</prov-attribute>
+
+	<prov-attribute name="PRI.Trunk_DialPlanId" type="feature" label="Dial Plan profile">
+		<catalog-object name="DialingPlan">
+			<catalog-property name="PrefixandFeatureCode" value="" source="request" />
+			<!-- TODO: Defaulted E164NormAndCodeConv. Yet to figure out if it comes in request -->
+			<catalog-property name="E164NormAndCodeConv" value="1001" source="default" />
+			<catalog-property name="CallBarringLocal" value="1004" source="default" />
+			<catalog-property name="PublicUID" value="0" source="request" />
+			<catalog-property name="Assigned" value="true" source="default" />
+		</catalog-object>
+	</prov-attribute>
+	<!-- END PRI.Trunk -->
+</ServiceConfig>

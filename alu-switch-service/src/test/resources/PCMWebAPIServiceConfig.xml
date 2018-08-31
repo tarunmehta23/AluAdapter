@@ -1,0 +1,254 @@
+<!-- 
+
+LABEL-1   :   This setting has been set to a known default value. 
+			  The interface spec says that this is an "optional" field 
+			  and does not provide any default value.
+
+
+ -->
+<ServiceConfig>
+<prov-attribute name="ACR" type="feature" label="Anonymous Call Reject">
+    <catalog-object name="anonymousCallRejection">
+    	<catalog-property name="status" value="" source="request"/>
+    	<catalog-property name="inherit" value="PRIMARY" source="default"/>
+		<catalog-property name="pingRing" value="false" source="default"/>
+		<catalog-property name="acrList" value="" source="request"/>
+    </catalog-object>
+</prov-attribute>
+
+<prov-attribute name="CFNA" type="feature" label="Call Forward No Answer">
+    <catalog-object name="callForwardingNoAnswer" >
+    	<catalog-property name="status" value="OFF" source="default"/>
+    	<catalog-property name="inherit" value="PRIMARY" source="default"/>
+		<catalog-property name="fwdToType" value="TO_DN" source="default"/>
+		<catalog-property name="fwdDN" value="" source="request"/>
+		<catalog-property name="naTimeout" value="" source="request"/>
+		<catalog-property name="forwardVoiceCalls" value="true" source="default"/>
+		<catalog-property name="forwardDataCalls" value="true" source="default"/>
+		<catalog-property name="restrictIdForward" value="false" source="default"/>
+		<catalog-property name="restrictIdBackward" value="false" source="default"/>		
+		<catalog-property name="specialDialTone" value="false" source="default"/>
+		<catalog-property name="tas181Mode" value="TAS_181_NONE" source="default"/>	
+    </catalog-object>
+</prov-attribute>
+     
+<prov-attribute name="CFD" type="feature" label="Call Forwarding Default">
+    <catalog-object name="callForwardingDefault" >
+    	<catalog-property name="status" value="ON" source="default"/>
+    	<catalog-property name="inherit" value="PRIMARY" source="default"/>
+    	<catalog-property name="busyActive" value="ON" source="default"/>
+    	<catalog-property name="noanswerActive" value="ON" source="default"/>
+		<catalog-property name="fwdToType" value="TO_VMS" source="default"/>
+		<catalog-property name="fwdDN" value="" source="request"/>
+		<catalog-property name="naTimeout" value="" source="request"/>
+		<catalog-property name="restrictIdForward" value="false" source="default"/>
+		<catalog-property name="restrictIdBackward" value="false" source="default"/>
+		<catalog-property name="tas181Mode" value="TAS_181_NONE" source="default"/>
+    </catalog-object>
+</prov-attribute>
+     
+<prov-attribute name="CFB" type="feature" label="Call Forward Busy">
+    <catalog-object name="callForwardingBusy" >
+    	<catalog-property name="status" value="OFF" source="default"/>
+    	<catalog-property name="inherit" value="PRIMARY" source="default"/>    
+		<catalog-property name="fwdToType" value="TO_DN" source="default"/>
+		<catalog-property name="fwdDN" value="" source="request"/>
+		<catalog-property name="naTimeout" value="" source="request"/>
+		<catalog-property name="forwardVoiceCalls" value="true" source="default"/>
+		<catalog-property name="forwardDataCalls" value="true" source="default"/>
+		<catalog-property name="restrictIdForward" value="false" source="default"/>
+		<catalog-property name="restrictIdBackward" value="false" source="default"/>		
+		<catalog-property name="specialDialTone" value="false" source="default"/>
+		<catalog-property name="tas181Mode" value="TAS_181_NONE" source="default"/>	
+    </catalog-object>
+</prov-attribute>
+
+<prov-attribute name="VMAIL" type="feature" label="Call Forward Default">
+    <catalog-object name="callForwardingDefault" >
+    	<catalog-property name="inherit" value="PRIMARY" source="default"/>
+		<catalog-property name="status" value="OFF" source="default"/>
+		<catalog-property name="fwdToType" value="TO_DN" source="default"/>
+		<catalog-property name="fwdDN" value="" source="request"/>
+		<catalog-property name="naTimeout" value="30" source="default"/> <!--check LABEL-1 Currently setting the default value mentioned in the spec -->
+		<catalog-property name="busyActive" value="ON" source="default"/> <!--check LABEL-1  -->
+		<catalog-property name="noanswerActive" value="ON" source="default"/> <!--check LABEL-1  -->		
+    </catalog-object>
+</prov-attribute>
+
+<prov-attribute name="CFU" type="feature" label="Call Forward Unconditional">
+    <catalog-object name="callForwardingVariable" >
+    	<catalog-property name="inherit" value="PRIMARY" source="default"/>
+		<catalog-property name="status" value="OFF" source="default"/>
+		<catalog-property name="fwdToType" value="TO_DN" source="default"/>
+		<catalog-property name="fwdDN" value="" source="request"/>
+		<catalog-property name="pingRing" value="true" source="default"/>
+		<catalog-property name="forwardVoiceCalls" value="true" source="default"/>
+		<catalog-property name="forwardDataCalls" value="true" source="default"/>
+		<catalog-property name="restrictIdForward" value="false" source="default"/>
+		<catalog-property name="restrictIdBackward" value="false" source="default"/>		
+		<catalog-property name="specialDialTone" value="false" source="default"/>
+		<catalog-property name="tas181Mode" value="TAS_181_NONE" source="default"/>		
+    </catalog-object>
+</prov-attribute>
+
+<prov-attribute name="SCR" type="feature" label="Selective Call Reject">
+    <catalog-object name="selectiveCallRejection" >
+   		<catalog-property name="status" value="OFF" source="default"/>
+    	<catalog-property name="inherit" value="PRIMARY" source="default"/>
+    	<catalog-property name="pingRing" value="false" source="default"/>    
+		<catalog-property name="selRejectList" value="" source="request"/>
+    </catalog-object>
+</prov-attribute>
+
+<prov-attribute name="SCF" type="feature" label="Selective Call Forward">
+	<catalog-object name="SelectiveCallForwarding" >
+		<catalog-property name="status" value="" source="request" />
+		<catalog-property name="inherit" value="PRIMARY" source="default" />
+		<catalog-property name="pingRing" value="false" source="default" />
+		<catalog-property name="fwdToType" value="TO_DN" source="default" />
+		<catalog-property name="fwdDN" value="" source="request" />
+		<catalog-property name="scfList" value="" source="request" />
+	</catalog-object>
+</prov-attribute>
+
+<prov-attribute name="CallWait" type="feature" label="Call Wait">
+    <catalog-object name="callWaiting" >
+		<catalog-property name="status" value="ON" source="default"/>
+    	<catalog-property name="inherit" value="PRIMARY" source="default"/>
+    </catalog-object>
+</prov-attribute>
+
+<prov-attribute name="PPS" type="feature" label="Privacy Settings">
+    <catalog-object name="callingLineId" >
+    	<catalog-property name="status" value="ON" source="default"/>
+    	<catalog-property name="inherit" value="PRIMARY" source="default"/>
+		<catalog-property name="restrictionType" value="" source="request"/>
+		<catalog-property name="namePresentation" value="true" source="default"/>
+		<catalog-property name="lineIdPresentation" value="true" source="default"/>
+		<catalog-property name="connectedLinePresentation" value="true" source="default"/>
+		<catalog-property name="connectedLineRestriction" value="true" source="default"/>
+    </catalog-object>
+</prov-attribute>
+
+<prov-attribute name="SimultaneousRing" type="feature" label="Simultaneous Ring">
+    <catalog-object name="simultaneousRing" >
+	    <catalog-property name="status" value="OFF" source="default"/>
+    	<catalog-property name="inherit" value="PRIMARY" source="default"/>
+    	<catalog-property name="simrngList" value="" source="request"/>
+    </catalog-object>
+</prov-attribute>	
+
+<prov-attribute name="SequentialRing" type="feature" label="Sequential Ring">
+    <catalog-object name="sequentialRing" >
+	    <catalog-property name="status" value="OFF" source="default"/>
+    	<catalog-property name="inherit" value="PRIMARY" source="default"/>
+    	<catalog-property name="seqrngList" value="" source="request"/>    
+ 		<catalog-property name="defaultTimeout" value="30" source="default"/>
+		<catalog-property name="naTimeout" value="30" source="default"/>
+		<catalog-property name="continueOnBusy" value="true" source="default"/>
+		<catalog-property name="continueOnNoAnswer" value="true" source="default"/>
+		<catalog-property name="restrictIdForward" value="false" source="default"/>
+		<catalog-property name="restrictIdBackward" value="false" source="default"/>		
+		<catalog-property name="tas181Mode" value="TAS_181_NONE" source="default"/>
+    </catalog-object>
+</prov-attribute>		
+
+<prov-attribute name="DistinctiveRing" type="feature" label="Distinctive Ring">
+    <catalog-object name="multipleRingPattern" >
+	    <catalog-property name="status" value="ON" source="default"/>
+    	<catalog-property name="inherit" value="" source="request"/> <!-- PRIMARY for Standard TN and SELF for RINGPATTERN TNs -->
+    	<catalog-property name="puid" value="" source="request"/>
+ 		<catalog-property name="ringPattern" value="" source="request"/> <!-- PATTERN1 thru PATTERN6 -->
+    </catalog-object>
+</prov-attribute>	
+
+<prov-attribute name="CustomCNAM" type="feature" label="Custom CNAM">
+    <catalog-object name="flexibleCallingLineID" >
+	    <catalog-property name="status" value="OFF" source="default"/>
+    	<catalog-property name="inherit" value="PRIMARY" source="default"/>  
+    </catalog-object>
+</prov-attribute>
+		
+<prov-attribute name="DoNotDisturb" type="feature" label="Do Not Disturb">
+    <catalog-object name="doNotDisturb" >
+	    <catalog-property name="status" value="" source="request"/>
+    	<catalog-property name="inherit" value="PRIMARY" source="default"/>
+    	<catalog-property name="pingRing" value="false" source="default" />
+    	<catalog-property name="specialDialTone" value="false" source="default" />  
+    </catalog-object>
+</prov-attribute>
+	
+<prov-attribute name="CallBlocking" type="feature" label="Call Blocking IBR">
+    <catalog-object name="callBlocking" >
+	    <catalog-property name="status" value="ON" source="default"/>
+    	<catalog-property name="inherit" value="PRIMARY" source="default"/>
+    	<catalog-property name="blkAll" value="" source="request" />
+    	<catalog-property name="blkInternational" value="false" source="default" /> <!--  no equivalant value in CTS ??? -->
+		<catalog-property name="specialDialTone" value="false" source="default"/>
+    </catalog-object>
+</prov-attribute>
+
+<prov-attribute name="CallBarring" type="feature" label="CallBarring other blocking codes">
+    <catalog-object name="callBarring" >
+	    <catalog-property name="status" value="" source="request"/>
+    	<catalog-property name="inherit" value="PRIMARY" source="default"/>
+    	<catalog-property name="allBarring" value="false" source="default"/>
+    	<catalog-property name="localBarring" value="" source="request"/>
+    	<catalog-property name="intraLataBarring" value="false" source="default"/>
+    	<catalog-property name="interLataBarring" value="false" source="default"/>
+    	<catalog-property name="internationalBarring" value="" source="request"/>
+    	<catalog-property name="nationalBarring" value="false" source="default"/>
+    	<catalog-property name="premiumServicesBarring" value="" source="request"/>
+    	<catalog-property name="emergencyBarring" value="false" source="default"/>
+    	<catalog-property name="tollFreeBarring" value="false" source="default"/>
+    	<catalog-property name="fgdDialedCarrierBarring" value="" source="request"/>
+    	<catalog-property name="fgbDialedCarrierBarring" value="" source="request"/>
+    	<catalog-property name="directoryAssistanceBarring" value="" source="request"/>
+    	<catalog-property name="nxxCallsBarring" value="false" source="default"/>
+    	<catalog-property name="user1CallsBarring" value="false" source="default"/>
+    	<catalog-property name="user1CallsBarring" value="false" source="default"/>
+    	<catalog-property name="user2CallsBarring" value="false" source="default"/>
+    	<catalog-property name="user3CallsBarring" value="false" source="default"/>
+    	<catalog-property name="user4CallsBarring" value="false" source="default"/>
+    	<catalog-property name="user5CallsBarring" value="false" source="default"/>
+    	<catalog-property name="user6CallsBarring" value="false" source="default"/>
+    	<catalog-property name="user7CallsBarring" value="false" source="default"/>
+    	<catalog-property name="user8CallsBarring" value="false" source="default"/>
+    	<catalog-property name="user9CallsBarring" value="false" source="default"/>
+    	<catalog-property name="user10CallsBarring" value="false" source="default"/>
+    	<catalog-property name="user11CallsBarring" value="false" source="default"/>
+    	<catalog-property name="user12CallsBarring" value="false" source="default"/>
+    	<catalog-property name="user13CallsBarring" value="false" source="default"/>
+    	<catalog-property name="mobileBarring" value="false" source="default"/>
+    	<catalog-property name="nonNumericBarring" value="false" source="default"/>
+		<catalog-property name="specialDialTone" value="false" source="default"/>
+    </catalog-object>
+</prov-attribute>	
+
+<prov-attribute name="PersonalAnswering" type="feature" label="Personal Answering Service aka Auto Attendant">
+    <catalog-object name="personalAnswering" >
+	    <catalog-property name="status" value="OFF" source="default"/>
+    	<catalog-property name="inherit" value="PRIMARY" source="default"/>
+    	<catalog-property name="rootVxmlURI" value="" source="request"/>  
+    </catalog-object>
+</prov-attribute>
+
+<prov-attribute name="SC1D" type="feature" label="One Digit Speed Dial">
+    <catalog-object name="SpeedDial8Settings" >
+	    <catalog-property name="status" value="OFF" source="default"/>
+    	<catalog-property name="inherit" value="PRIMARY" source="default"/>
+    	<catalog-property name="spd8List" value="" source="request"/>  
+    </catalog-object>
+</prov-attribute>
+
+<prov-attribute name="LogonId" type="feature" label="Logon Id Data">
+   <catalog-object name="LogonId">
+       <catalog-property name="partitionId" value="1" source="default"/>
+       <catalog-property name="logonType" value="PARTITION_USER" source="default"/>
+       <catalog-property name="nativeClient" value="true" source="default"/>
+       <catalog-property name="userId" value="" source="request"/>
+       <catalog-property name="password" value="" source="request"/>
+       <catalog-property name="artifact" value="" source="request"/>
+   </catalog-object>
+</prov-attribute>
+</ServiceConfig>

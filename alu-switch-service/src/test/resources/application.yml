@@ -1,0 +1,57 @@
+logging.config: logback.xml
+
+server:
+  port: 8301
+  contextPath: /alu-switch-service
+  
+logging.config: logback.xml
+  
+  
+config:
+  ctsServiceConfigName: CTSServiceConfig.xml
+  ctsSwitchConfigName: CTSSwitchConfiguration.xml
+  pcmWebAPIServiceConfigName: PCMWebAPIServiceConfig.xml
+
+
+OMCPSwitchConfiguration:
+    PrimaryEndpointURL: http://iadcom01.voip.hrndva.rr.com:8080/plxwebapi/api
+    SecondaryEndpointURL: http://dcacom01.voip.hrndva.rr.com:8080/plxwebapi/api
+    UserId: springcom
+    Password: 
+    SSHUserId: plx
+    SSHPassword: 
+    LoopbackMode: N
+    RetryCount: 2
+
+    #All time values in seconds
+    RetryWaitTime: 2
+    SessionRefreshInterval: 30
+    PlxTimeout: 5
+    PrimaryRetryCount: 1
+    SecondaryRetryCount: 1
+
+    #[1.6.0] Ims Domain used for searching publicIDx
+    ImsDomain: ims.eng.rr.com
+
+PCMSwitchConfiguration:
+   PCMAppPort: 8080
+   PCMAppProtocol: http
+   PCMVipServerName: "iadpcma01-pub.voip.hrndva.rr.com,dcapcma01-pub.voip.hrndva.rr.com"
+   LoginEndPoint: "/icm/ws/LogonService"
+   FeatureEndPoint: "/icm/ws/FeatureManagementService"
+   PASEndPoint: "/icm/ws/AdjunctFeatureService"
+   DefaultPassword: 
+   SwitchName: TWC_PCM_ENG
+   PartitionId: 3
+   WebAPIPartitionId: twc
+   EnterpriseId: TWC
+   TemplateId: default
+
+CTSAlaCarteConfiguration:
+  MaxSequentialRings: 6
+  MaxSimultaneousRings: 5
+  MaxMultipleRings: 6
+  ComInterfaceEnabled: true
+  MaxNumberOfRings: 10
+
+SubscriberId.MaxLength: 27
